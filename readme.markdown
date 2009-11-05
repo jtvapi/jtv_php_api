@@ -1,6 +1,8 @@
 Justin.tv PHP Client Library
 ============================
 
+Requires the OAuth PECL extension. Install it with pecl install oauth. See http://pecl.php.net/package/oauth for more info.
+
 How to use:
 -----------
 
