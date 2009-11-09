@@ -136,7 +136,13 @@ class JtvClient extends BaseJtvClient {
         $oauth = self::make_oauth();
         $result = $oauth->fetch($url, null, OAUTH_HTTP_METHOD_GET);
         if ($result) {
-            return json_decode($oauth->getLastResponse(), true);
+            $last_response = $oauth->getLastResponse();
+            $res = json_decode($last_response, true);
+            if ($res) {
+                return $res;
+            } else {
+                return $last_response;
+            }
         }
         return $result;
     }
@@ -146,7 +152,13 @@ class JtvClient extends BaseJtvClient {
         $oauth = self::make_oauth();
         $result = $oauth->fetch($url, $data, OAUTH_HTTP_METHOD_POST);
         if ($result) {
-            return json_decode($oauth->getLastResponse(), true);
+            $last_response = $oauth->getLastResponse();
+            $res = json_decode($last_response, true);
+            if ($res) {
+                return $res;
+            } else {
+                return $last_response;
+            }
         }
         return $result;
     }
